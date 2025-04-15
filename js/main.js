@@ -1,5 +1,11 @@
 // ELEMENTI
 const rowEl = document.querySelector(".row");
+const inputForm = document.getElementById("input-form");
+const formButton = document.getElementById("form-button");
+const formName = document.getElementById("name-input");
+const formRole = document.getElementById("role-input");
+const formEmail = document.getElementById("email-input");
+const formImage = document.getElementById("image-input");
 
 const teamMembers = [
   {
@@ -61,3 +67,22 @@ for (const member of teamMembers) {
   const { name, role, email, img } = member;
   rowEl.innerHTML += cardCreateHTML(name, role, email, img);
 }
+
+// INPUT;
+
+formButton.addEventListener("click", (e) => {
+  e.preventDefault();
+  const name = formName.value;
+  const role = formRole.value;
+  const email = formEmail.value;
+  const img = formImage.value;
+
+  let newMember = {
+    name,
+    role,
+    email,
+    img,
+  };
+
+  rowEl.innerHTML += cardCreateHTML(name, role, email, img);
+});
