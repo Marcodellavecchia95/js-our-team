@@ -70,7 +70,7 @@ for (const member of teamMembers) {
 
 // INPUT;
 
-formButton.addEventListener("click", (e) => {
+inputForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const name = formName.value;
   const role = formRole.value;
