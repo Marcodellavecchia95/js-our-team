@@ -1,5 +1,5 @@
 // ELEMENTI
-const containerEl = document.querySelector(".container");
+const rowEl = document.querySelector(".row");
 
 const teamMembers = [
   {
@@ -42,19 +42,22 @@ const teamMembers = [
 const member = teamMembers[0];
 // CARD CREATE FUNCTION
 const cardCreateHTML = (name, role, email, img) => {
-  return `<div class= "team-card">
+  return `
+          <div class = "col-lg-4 col-md-6 col-sm-12">
+          <div class= "card bg-black text-white my-3 py-3"   style="width: 18rem;"  >
           <div class= "card-image">
           <img src ="${img}" alt= "${name}"/>
           </div>
-          <div class = "card-text">
+          <div class = "card-text " >
           <h3>${name}</h3>
           <p>${role}</p>
-          <p>${email}</p>
+          <a class = "fw-bold" href="#">${email}</a>
+          </div>
           </div>
           </div>`;
 };
 
 for (const member of teamMembers) {
   const { name, role, email, img } = member;
-  containerEl.innerHTML += cardCreateHTML(name, role, email, img);
+  rowEl.innerHTML += cardCreateHTML(name, role, email, img);
 }
